@@ -7,6 +7,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
@@ -32,6 +34,7 @@ public class BalloonsMain extends Application {
 		drawLines(root);
 		drawBalloons(root);
 		drawScore(root);
+		spikeImage(root);
 	}
 
 	private void drawScore(Group root) {
@@ -58,6 +61,14 @@ public class BalloonsMain extends Application {
 
 		for (Balloon b : ballons)
 			root.getChildren().add(b.getNode());
+	}
+
+	private void spikeImage(Group root) {
+		Image redBallon = new Image(BalloonsMain.class.getResourceAsStream("balloon.png"), 50, 50, true, true);
+		ImageView image = new ImageView(redBallon);
+		image.setX(350);
+		image.setY(70);
+		root.getChildren().add(image);
 	}
 
 	private void drawLines(Group root) {
